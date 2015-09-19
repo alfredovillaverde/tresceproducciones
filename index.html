@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>CCC Producciones</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="bootstrap-3.3.5/js/bootstrap.min.js"></script>
+	
+	<style>
+	@font-face {
+	  font-family: 'Rambla-Bold';
+	  font-style: normal;
+	  font-weight: normal;
+	  src: url(/fonts/Rambla-Bold.otf) format('otf');
+	}
+
+	@font-face {
+	  font-family: 'Rambla-BoldItalic';
+	  font-style: normal;
+	  font-weight: normal;
+	  src: url(/fonts/Rambla-BoldItalic.otf) format('otf');
+	}
+
+	@font-face {
+	  font-family: 'Rambla-Italic';
+	  font-style: normal;
+	  font-weight: normal;
+	  src: url(/fonts/Rambla-Italic.otf) format('otf');
+	}
+
+	@font-face {
+	  font-family: 'Rambla-Regular';
+	  font-style: normal;
+	  font-weight: normal;
+	  src: url(/fonts/Rambla-Regular.otf) format('otf');
+	}
+
+	h1{
+		font-family: Rambla-Italic;
+	}
+
+	h2{
+		font-family: Rambla-Bold;
+	}
+
+	div{
+		outline: 1px solid red;
+	}
+
+	#section1,#section2,#section3,#section4{
+		min-height: 500px;
+		outline: 1px solid green;
+	}
+
+	#intro{
+		min-height: 500px;
+		outline: 1px solid blue;
+	}
+
+	</style>
+</head>
+<body>
+	<nav id="nav" class="row">
+  			<ul class="col-md-12 row">
+  				<li class="col-md-3"><a href="#section1">Section 1</a></li>
+  				<li class="col-md-3"><a href="#section2">Section 2</a></li>
+  				<li class="col-md-3"><a href="#section3">Section 3</a></li>
+  				<li class="col-md-3"><a href="#section4">Section 4</a></li>
+  			</ul>
+  		</nav>
+	<div class="container-fluid">
+  		
+  		<div class="row" id="intro">
+  			<div class="col-md-6 col-md-offset-3">
+	  			<h1>TresCe</h1>
+	  			<h2>Producciones</h2>
+	  			<h3>Segundo título</h3>
+  			</div>
+  		</div>
+  		
+  		<div class="row" id="section1">Contenido seccion 1</div>
+  		<div class="row" id="section2">Contenido seccion 2</div>
+  		<div class="row" id="section3">Contenido seccion 3</div>
+  		<div class="row" id="section4">Contenido seccion 4</div>
+	</div>
+	<script src="utils/ScrollNaviJs-master/js/scroll_navi.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $("#nav").scroll_navi();
+    </script>
+</body>
+</html>
