@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
+	<meta name="robots" content="noindex" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>Tresce Producciones</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" type="text/css" href="/tresce/utils/lib/bootstrap-3.3.5/css/bootstrap.min.css">
@@ -18,293 +20,20 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/tresce/utils/lib/font-awesome/css/font-awesome.min.css">
 	
-	<style>
-	/* Paleta de colores
-	Celeste rgba(54,169,224,1)
-	Violeta rgba(162,25,91,1)
-	Verde manzana rgba(149,193,30,1)
-	Rojo rgba(190,22,33,1)
-	Verde agua rgba(0,160,154,1)
-	Naranja rgba(243,146,0,1)
-	Amarillo rgba(249,178,51,1)
-	Gris rgba(87,87,86,1)
-	 */
-
-	html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-	body{
-		font-family: 'Roboto Condensed', sans-serif;
-	}
-
-	#svg7826{/*NAV SCROLL LOGO*/
-		height: 186px;
-    	position: fixed;
-    	top: -200px;/*Needs to be 14px to show*/
-    	left: 125px;
-    	z-index: 120;
-		
-	}
-
-	#logo-tresce-svg{/*MAIN LOGO SVG*/
-		width: 430px;
-		height: 510px;
-		opacity: 0;
-		/* position: fixed;
-		top:200px; */
-	}
-
-	img#nav-logo{
-		height: 88px;
-    	position: absolute;
-    	top: 14px;
-    	left: 125px;
-	}
-
-	#nav{
-		background-color:rgba(87,87,86,1);
-		height: 116px;
-		position: fixed;
-	    width: 100%;
-	    left: 0;
-	    top: 0;
-	    z-index: 100;
-	    border-top: 0;
-	}
-
-	#nav ul.nav{
-		margin-right: 125px;
-		margin-top:30px;
-	}
-
-	#nav ul.nav li{
-		margin-left: 10px;
-
-	}
-
-	#nav a{
-		color: rgba(194,195,200, 1);
-		font-weight: bold;
-		text-transform: uppercase;
-		font-size: 18px;
-		letter-spacing: 2px;
-		border-bottom-color: transparent;
-		border-bottom-width: 3px;
-		border-bottom-style: solid;
-		transition: color .5s,border-bottom-color .5s;
-	}
-
-
-
-	#nav ul.nav a:hover{
-		border-bottom-color: white;
-		border-bottom-width: 3px;
-		border-bottom-style: solid;
-		background: none;
-		color: rgba(255,255,255, 1);
-	}
-
-	#nav ul.nav a#link-tresce i,
-	#nav ul.nav a#link-nosotros i,
-	#nav ul.nav a#link-proyectos i,
-	#nav ul.nav a#link-hola i{
-		color: rgba(194,195,200, 1);
-		transition: color .5s;
-	}
-
-	#nav ul.nav a#link-tresce:hover i{
-		color:rgba(230,181,72,1);
-	}
-
-	#nav ul.nav a#link-nosotros:hover i{
-		color:rgba(160,16,39,1);
-	}
-	
-	#nav ul.nav a#link-proyectos:hover i{
-		color:rgba(163,189,49,1);
-	}
-
-	#nav ul.nav a#link-hola:hover i{
-		color:rgba(118,170,219,1);
-	}
-
-	#intro{
-		margin-top:116px;
-		padding-top: 50px;
-		padding-bottom: 50px;
-		min-height: 500px;
-	}
-	#intro div{
-		text-align: center;
-	}
-
-	#logo{
-		width:430px;
-	}
-
-	section{
-		min-height: 500px;
-	}
-
-	
-	section .contenido-seccion{
-		text-align: center;
-	}
-
-	section .contenido-seccion h2{
-		font-size: 46px;
-		text-transform: uppercase;
-		font-weight: 800;
-		margin-bottom: 30px;
-	}
-
-	section .contenido-seccion p{
-		font-size: 24px;
-	}
-
-	section#tresce{
-		background-image: url(/tresce/assets/images/gender-slider3.jpg);
-		background-size: 1920px 960px;
-		background-position: center center;
-		height:300px;
-		transition:background-size 0.3s;
-	}
-
-	section#tresce:hover{
-		background-size: 2000px 1000px;
-	}
-
-	section#tresce .contenido-seccion{
-		background-color: rgba(255,255,255,0.8);
-		height: 285px;
-		padding-top: 15px;
-		margin-top: 100px;
-		margin-bottom: 100px;
-		opacity: 0;
-	}
-
-
-	section#proyectos{
-		background-color: rgba(255,255,255,1);
-		height:300px;
-	}
-
-	section#proyectos .contenido-seccion{
-		background-color: rgba(255,255,255,1);
-		height: 300px;
-		margin-top: 100px;
-		margin-bottom: 100px;
-		color: rgba(87,87,86,1);
-		transition: color 0.5s;
-	}
-
-	section#proyectos:hover .contenido-seccion{
-		color: rgba(162,25,91,1);
-	}
-
-	section#nosotros{
-		background-color: rgba(0,160,154,1);
-		height:300px;
-	}
-
-	section#nosotros .contenido-seccion{
-		color: rgba(255,255,255,1);
-		height: 300px;
-		margin-top: 100px;
-		margin-bottom: 100px;
-
-	}
-
-	section#nosotros #arte-que-ilumina-container{
-
-	}
-
-	#arte-que-ilumina{
-
-	}
-
-	section#hola{
-		background-color: rgba(255,255,255,1);
-		
-		height:300px;
-	}
-
-	section#hola .contenido-seccion{
-		background-color: rgba(255,255,255,1);
-		height: 300px;
-		margin-top: 100px;
-		margin-bottom: 100px;
-		color: rgba(87,87,86,1);
-		transition: color 0.5s;
-	}
-
-	section#hola:hover .contenido-seccion{
-		color: rgba(243,146,0,1);
-	}
-
-	footer{
-		
-		background: rgba(87,87,86,1); 
-		color: rgba(194,195,200, 1);
-		padding-top: 50px;
-		padding-bottom: 70px;
-		font-size:18px;
-		
-	}
-	
-	footer .contact{
-		color: rgba(194,195,200, 1);
-		transition: color .5s;
-	}
-
-	footer .contact:hover{
-		color: rgba(255,255,255,1);
-		transition: color .5s;
-	}
-
-	footer #redes{
-		margin-top: 45px;
-		font-size: 36px;
-	}
-
-	footer #redes a{
-		color: rgba(194,195,200, 1);
-		transition: color .5s;
-		margin-right: 20px;
-	}
-
-	footer #redes a:hover{
-		color: rgba(255,255,255, 1);
-		transition: color .5s;
-	}
-
-	#svgcontainer{
-		position: absolute;
-		left: -999em;
-	}
-	h1{
-	}
-
-	h2{
-	}
-
-	
-	</style>
+	<link rel="stylesheet" href="/tresce/assets/css/tresce.css">
 </head>
 <body>
 	
-	<div class="container-fluid">
+	<div class="container-fluid" id="home">
   		<nav id="nav" class="row-fluid">
   			<img src="/tresce/assets/images/logo-tresce-nav.png" alt="TresCe Producciones" id="nav-logo">
+  			<a href="#home" id="back-to-top"><i class="fa fa-long-arrow-up"></i> <span class="sr-only">volver</span></a>
   			<div class="col-md-12">
   			<ul class="nav navbar-nav navbar-right">
-  				<li><a id="link-tresce" href="#"><i class="fa fa-lightbulb-o"></i> TresCe</a></li>
-  				<li><a id="link-proyectos" href="#section3"><i class="fa fa-plug"></i> Proyectos</a></li>
-  				<li><a id="link-nosotros" href="#section2"><i class="fa fa-child"></i> Nosotros</a></li>
-  				<li><a id="link-hola" href="#section4"><i class="fa fa-comment"></i> ¡Hola!</a></li>
+  				<li><a id="link-tresce" href="#tresce"><i class="fa fa-lightbulb-o"></i> <span class="nav-text">TresCe!</span></a></li>
+  				<li><a id="link-proyectos" href="#proyectos"><i class="fa fa-plug"></i> <span class="nav-text">Proyectos</span></a></li>
+  				<li><a id="link-nosotros" href="#nosotros"><i class="fa fa-child"></i> <span class="nav-text">Nosotros</span></a></li>
+  				<li><a id="link-hola" href="#hola"><i class="fa fa-comment"></i> <span class="nav-text">¡Hola!</span></a></li>
   			</ul>
   			</div>
 		</nav>
@@ -318,26 +47,45 @@
   			<div class="col-md-6 col-md-offset-3 contenido-seccion">
   				<h2>TresCe</h2>
 	  			<p>
-	  			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas totam ea voluptatum magni, eveniet dolor mollitia itaque consequuntur atque, laudantium nesciunt facilis. In numquam eaque debitis dignissimos, molestias aut voluptates.</span>
-	  			
-	  			
+	  			<span>TresCe Producciones es creadora y productora de formatos artísticos del género Teatro Musical, composición musical en varios estilos y material audiovisual.</span>
 	  			</p>
   			</div>
    		</section>
   		<section class="row" id="proyectos">
   			<div class="col-md-6 col-md-offset-3 contenido-seccion">
   				<h2>Proyectos</h2>
+			
 	  			<p>
-	  			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas totam ea voluptatum magni, eveniet dolor mollitia itaque consequuntur atque, laudantium nesciunt facilis. In numquam eaque debitis dignissimos, molestias aut voluptates.</span>
+	  			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas totam ea voluptatum magni, eveniet dolor mollitia itaque consequuntur atque, laudantium nesciunt facilis. In numquam eaque debitis dignissimos, <a href="#setratadeti">Se Trata de Ti</a>.</span>
+	  			</p>
+	  			
+  			</div>
+  		</section>
+  		
+  		</section>
+  		<section class="row" id="setratadeti">
+  			<div class="col-md-6 col-md-offset-3 contenido-seccion">
+  				<h2 id="logo-setratadeti-container"><span class="sr-only">Se Trata de Tí</span></h2>
+	  			<p>
+	  			<span>Se Trata de Ti sacude a su público a través de una entretenida historia de encuentros y desencuentros, cotidianeidad, amor incondicional, transformaciones y 
+oportunidades, basado en seis cortos audiovisuales los cuales nos lleva a 
+reflexionar sobre el sentido de la vida y nuestro accionar para con los demás.</span>
 	  			</p>
 	  			
   			</div>
   		</section>
   		<section class="row" id="nosotros">
+			<div style="position:relative;">
+  				<span id="keyword-arte">Arte</span>
+  				<span id="keyword-calidad">Calidad</span>
+  				<span id="keyword-excelencia">Excelencia</span>
+  			</div>
   			<div class="col-md-6 col-md-offset-3 contenido-seccion">
   				<h2>Nosotros</h2>
+  				
+  				
 	  			<p>
-	  			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas totam ea voluptatum magni, eveniet dolor mollitia itaque consequuntur atque, laudantium nesciunt facilis. In numquam eaque debitis dignissimos, molestias aut voluptates.</span>
+	  			<span>Un elenco de más de 60 artistas entre músicos, actores y bailarines, con un staff de más de 30 personas dedicados a cumplir con los más altos estándares de calidad artística en nuestro país.</span>
 	  			</p>
   			</div>
   			<div class="col-md-3 text-right" id="arte-que-ilumina-container"></div>
@@ -346,7 +94,7 @@
   			<div class="col-md-6 col-md-offset-3 contenido-seccion">
   				<h2>¡Hola!</h2>
 	  			<p>
-	  			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas totam ea voluptatum magni, eveniet dolor mollitia itaque consequuntur atque, laudantium nesciunt facilis. In numquam eaque debitis dignissimos, molestias aut voluptates.</span>
+	  			<span>Desde hace 4 años nos abocamos a la tarea de convertir nuestra creatividad en productos artísticos que reflejen valores. Si te interesa nuestra propuesta, ¡contactános!</span>
 	  			</p>
   			</div>
   		</section>
@@ -385,86 +133,13 @@
 	    <!-- should be replaced with minified version when development is finished -->
 		<script src="/tresce/utils/lib/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
 		<script src="/tresce/utils/lib/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+		<script src="/tresce/utils/lib/scrollmagic/js/lib/greensock/plugins/ScrollToPlugin.min.js"></script>
+
 		<!-- should be removed when development is finished -->
 		<script src="/tresce/utils/lib/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+	    <script src="/tresce/utils/scripts/tresce.js"></script>
 	    <script type="text/javascript">
-        $(function() {
-			
-			var controller = new ScrollMagic.Controller();
-			
-			
-			/*var sceneProyectos = new ScrollMagic.Scene({
-				triggerElement: "#contenedor-setratadeti",
-				duration: 480
-			}).setPin("#button-setratadeti").addIndicators().addTo(controller);
-*/
-
-			$.get("/tresce/assets/images/svgs/images.svg")
-		    .then(injectSvgs)
-		    .always(prepSVGAnimations);
-			
-			function injectSvgs(svgDoc){
-				var svg = $(svgDoc).find("svg").each(function(){
-					$(this).appendTo("#svgcontainer");
-				});
-			}
-
-			function prepSVGAnimations(){
-				$("#logo-tresce-svg").appendTo("#logo-container");
-				$("#arte-que-ilumina").appendTo("#arte-que-ilumina-container");
-
-				var logoTweens = new TimelineMax()
-					.to("#nav-logo", .5, {left:"-500px",ease:Back.easeIn})
-					.to("#svg7826", .5, {top: "14px",ease:Back.easeOut})
-					.to("#path10064", .5, {transform:"scale(1.3)", transformOrigin:"50% 50%", repeat:2, yoyo: true});
-
-				var sceneLogo = new ScrollMagic.Scene({
-					offset: 610,
-					reverse: true
-				}).setTween(logoTweens).addTo(controller);//.addIndicators({name: "timeline"})
-
-				var arteQueIluminaTweens = new TimelineMax()
-					.to(["#path12845","#path12849","#path12853","#path12857"], .3, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//ARTE
-					.to(["#path12861","#path12865","#path12869"], .3, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//QUE
-					/*.to("#path12845", .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//A
-					.to("#path12849", .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//R
-					.to("#path12853", .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//T
-					.to("#path12857", .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//E
-					.to("#path12861", .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//Q
-					.to("#path12865", .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//U
-					.to("#path12869", .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//E*/
-					.to(["#path12873","#path12877","#path12881","#path12885","#path12889","#path12893","#path12897","#path12805","#path12801"], .3, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:1, yoyo: true})//ILUMINA
-					/*.to(["#path12805","#path12801"], .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:0, yoyo: false})//FILAMENTO
-					.to("#path12801", .1, {transform:"scale(1.3)", transformOrigin:"50% 50%",fill: "#ffffff", repeat:0, yoyo: false})*///FILAMENTO
-					
-
-				var arteQueIluminaScene = new ScrollMagic.Scene({
-					triggerElement: "#nosotros",
-					reverse: true
-				}).setTween(arteQueIluminaTweens).addTo(controller);
-
-
-				var mainLogoTweens = new TimelineMax()
-					.to("#logo-tresce-svg", .5, {opacity: 1, delay:1})
-					.to("#path3339", .5,{transform:"scale(1.3)", transformOrigin:"50% 50%", repeat:3, yoyo: true});
-				
-				var mainLogoScene = new ScrollMagic.Scene({
-					offset: 0,
-					reverse: true
-				}).setTween(mainLogoTweens).addTo(controller);
-
-				var tresceTweens = new TimelineMax()
-					.to("#tresce .contenido-seccion", .5, {opacity: 1})
-
-				var tresceScene = new ScrollMagic.Scene({
-					offset: 100,
-					reverse: true
-				}).setTween(tresceTweens).addTo(controller);
-			}
-		});
-
-        	
-
+        
     </script>
     <div id="svgcontainer"></div>
 </body>
