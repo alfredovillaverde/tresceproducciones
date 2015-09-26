@@ -75,7 +75,8 @@ $(function() {
 
 	function prepSVGAnimations(){
 		$("#logo-tresce-svg").appendTo("#logo-container");
-		$("#arte-que-ilumina").appendTo("#arte-que-ilumina-container");
+		$("#arte-que-ilumina").clone().appendTo("#arte-que-ilumina-container");
+		$("#arte-que-ilumina").clone().appendTo("#modal-arte-que-ilumina-container");
 		$("#logo-setratadeti").appendTo("#logo-setratadeti-container");
 		
 		var logoTweens = new TimelineMax()
@@ -141,12 +142,18 @@ $(function() {
 
 		/*Se Trata de Ti*/
 		var setratadetiTweens = new TimelineMax()
-			.fromTo("#setratadeti .contenido-seccion", .5, {opacity: 0}, {opacity: 1})
-			.fromTo("#setratadeti .contenido-seccion h2", .5, {transform:"scale(0)"}, {transform:"scale(1)"})
+			.to("#setratadeti .contenido-seccion", .5, {opacity: 1})
+			.to("#se-trata-de-ti-bg-left", .5, {left:1,delay:.5,opacity:1})
+			.to("#se-trata-de-ti-bg-right", .5, {left:"459px",opacity:1})
+			.to("#logo-setratadeti", .5, {left:"356px", top:"125px"})
+			.to("#logo-setratadeti", .5, {opacity:1,transform:"scale(1.5)",transformOrigin:"50% 50%"})
+			/*.to(["#info-container","#video-container"], .5, {opacity:0})*/
 			
 		var setratadetiScene = new ScrollMagic.Scene({
 			triggerElement: "#setratadeti",
-			duration: 0
+			offset: 0,
+			duration: 0,
+			reverse: true
 		}).setTween(setratadetiTweens).addTo(controller);
 
 		/*NOSOTROS*/
@@ -193,9 +200,63 @@ $(function() {
 		})
 
 		
-		$("button").click(function(){
-			arteQueIluminaTweens.restart();
+		$("#btn-info").click(function(){
+			//hideSeTrataDeTiIntro('info');
+			$('#modalInfo').modal({})
 		})
+
+		$("#btn-video").click(function(){
+			//hideSeTrataDeTiIntro('video');
+			$('#modalVideo').modal({})	
+		})
+
+		$("#btn-camera").click(function(){
+			//hideSeTrataDeTiIntro('video');
+			$('#modalGaleria').modal({})	
+		})
+		
+
+		function hideSeTrataDeTiIntro(targetScene){
+			var setratadetiHideIntroTweens = new TimelineMax({onComplete:function(){
+				switch(targetScene){
+				case 'info':
+					setratadetiHideIntroTweens.to("#video-container", .5, {opacity:0})
+					/*showSeTratadetiInfo();*/
+					TweenMax.to("#info-container", .5, {opacity:1});
+				break;
+				case 'video':
+				setratadetiHideIntroTweens.to("#info-container", .5, {opacity:0})
+				/*showSeTratadetiVideo();*/
+				TweenMax.to("#video-container", .5, {opacity:1});
+				break;
+				case 'all':
+				setratadetiHideIntroTweens.to(["#info-container","#video-container"], .5, {opacity:0})
+				break;
+				default:
+					console.log('saliendo sin nada')
+				break;
+				}
+			}})
+			.to("#setratadeti #logo-setratadeti", .5, {opacity:0})
+			.to("#se-trata-de-ti-bg-right", .5, {left:"-460px",opacity:0})
+			.to("#se-trata-de-ti-bg-left", .5, {left:2000,opacity:0})
+			setratadetiHideIntroTweens.restart();
+		}
+
+
+		function showSeTratadetiInfo(){
+			 
+			/*var setratadetiShowinfoTweens = new TimelineMax()
+			.to("#info-container", .5, {opacity:1})
+			setratadetiShowinfoTweens.restart();*/
+		}
+
+		function showSeTratadetiVideo(){
+			TweenMax.to("#video-container", .5, {opacity:1});
+			/*var setratadetiShowVideoTweens = new TimelineMax()
+			.to("#video-container", .5, {opacity:1})
+			setratadetiShowVideoTweens.restart();*/
+		}
 
   				/*<span id="keyword-calidad">Calidad</span>
   				<span id="keyword-excelencia">Excelencia</span>*/
