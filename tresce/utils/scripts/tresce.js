@@ -1,4 +1,8 @@
 $(function() {
+	var setratadetilogoLeftPos,
+		setratadetilogoTopPos,
+		setratadetibgleftLeftPos,
+		setratadetibgleftTopPos = null;
 	var screenWidth = screen.availWidth;
 	var deviceType = null;
 	var scrollOffset = null;
@@ -6,7 +10,7 @@ $(function() {
 		deviceType = 'mobile';
 		scrollOffset = 50;
 	}else if(screenWidth<700){//mobile landscape
-		deviceType = 'mobile';
+		deviceType = 'mobile-landscape';
 		scrollOffset = 50;
 	}else if(screenWidth<768){
 		deviceType = 'mobile';
@@ -81,19 +85,33 @@ $(function() {
 		
 		var logoTweens = new TimelineMax()
 			.to("#nav-logo", .5, {left:"-500px",ease:Back.easeIn});
-			console.log('setting up logo tweens')
 		switch(deviceType){
 			case 'desktop':
 			logoTweens.to("#svg7826", .5, {top: "14px",ease:Back.easeOut});
+			setratadetilogoTopPos = "125px";
+			setratadetilogoLeftPos = "356px";
 			console.log('desktop...');
 			break;
 			case 'mobile':
 			logoTweens.to("#svg7826", .5, {transform:"scale(0.5)",ease:Back.easeOut});
 			logoTweens.to("#svg7826", .5, {top: "-44px", left: "200px",ease:Back.easeOut});
+			setratadetilogoTopPos = "120px";
+			setratadetilogoLeftPos = "80px";
 			console.log('mobile...');
 			break;
+			
+			case 'mobile-landscape':
+			logoTweens.to("#svg7826", .5, {transform:"scale(0.5)",ease:Back.easeOut});
+			logoTweens.to("#svg7826", .5, {top: "-44px", left: "520px",ease:Back.easeOut});
+			setratadetilogoTopPos = "120px";
+			setratadetilogoLeftPos = "80px";
+			console.log('mobile...');
+			break;
+
 			default:
 			logoTweens.to("#svg7826", .5, {top: "14px",ease:Back.easeOut});
+			setratadetilogoTopPos = "125px";
+			setratadetilogoLeftPos = "356px";
 			console.log('default desktop...');
 			break;
 		}
@@ -144,9 +162,12 @@ $(function() {
 		var setratadetiTweens = new TimelineMax()
 			.to("#setratadeti .contenido-seccion", .5, {opacity: 1})
 			.to("#se-trata-de-ti-bg-left", .5, {left:1,delay:.5,opacity:1})
-			.to("#se-trata-de-ti-bg-right", .5, {left:"459px",opacity:1})
-			.to("#logo-setratadeti", .5, {left:"356px", top:"125px"})
-			.to("#logo-setratadeti", .5, {opacity:1,transform:"scale(1.5)",transformOrigin:"50% 50%"})
+			if(deviceType!=='mobile'){
+				setratadetiTweens.to("#se-trata-de-ti-bg-right", .5, {left:"459px",opacity:1})
+				console.log('show bg right')
+			}
+			setratadetiTweens.to("#logo-setratadeti", .5, {left:setratadetilogoLeftPos, top:setratadetilogoTopPos})
+			setratadetiTweens.to("#logo-setratadeti", .5, {opacity:1,transform:"scale(1.5)",transformOrigin:"50% 50%"})
 			/*.to(["#info-container","#video-container"], .5, {opacity:0})*/
 			
 		var setratadetiScene = new ScrollMagic.Scene({
